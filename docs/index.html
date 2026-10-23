@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    (function () {
+      var lang;
+      try { lang = localStorage.getItem("lang"); } catch (e) {}
+      if (lang === "ms") location.replace("ms/" + location.search + location.hash);
+    })();
+  </script>
+  <title>Samsung TV — a quiet home screen</title>
+  <meta name="description" content="An ad-free home screen for Samsung Tizen TVs. Glass style, weather, and JAKIM prayer times. English first, Bahasa Melayu beside it.">
+  <link rel="canonical" href="https://mkfadzli.github.io/samsung-tv/">
+  <link rel="alternate" hreflang="en" href="https://mkfadzli.github.io/samsung-tv/">
+  <link rel="alternate" hreflang="ms" href="https://mkfadzli.github.io/samsung-tv/ms/">
+  <link rel="alternate" hreflang="x-default" href="https://mkfadzli.github.io/samsung-tv/">
+  <meta name="theme-color" content="#1b2740">
+  <meta property="og:title" content="Samsung TV">
+  <meta property="og:description" content="A quiet home screen. Glass, weather, and JAKIM prayer times.">
+  <meta property="og:image" content="https://mkfadzli.github.io/samsung-tv/assets/home.jpg">
+  <meta property="og:url" content="https://mkfadzli.github.io/samsung-tv/">
+  <link rel="icon" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560&family=Source+Code+Pro:wght@500&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <a class="brand" href="#top"><img src="assets/icon-512.png" alt="" width="40" height="40"><span>Samsung TV</span></a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a class="lang" href="ms/" hreflang="ms" lang="ms" data-lang="ms">BM</a>
+        <a href="https://github.com/mkfadzli/samsung-tv">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="stage" style="--i:0">
+        <div>
+          <p class="kicker">English first · Bahasa Melayu beside it</p>
+          <h1>A quiet evening, on the television.</h1>
+          <p class="lede">Inspired by the clean glass of Apple TV. Your apps rest on a clear shelf. The weather is one press away, and in Malaysia the next JAKIM prayer time sits beside it. No ads. No sponsored rows. Samsung's own home screen stays where it is.</p>
+          <div class="cta">
+            <a class="btn btn-gold" href="https://github.com/mkfadzli/samsung-tv">Get the code</a>
+            <a class="btn btn-line" href="#install">Install on a TV</a>
+          </div>
+        </div>
+        <figure class="stage-mark">
+          <img src="assets/icon-512.png" alt="Samsung TV icon: a television at dusk, with a crescent and a star">
+        </figure>
+      </section>
+
+      <figure class="screen" style="--i:1">
+        <img src="assets/home.jpg" width="1920" height="1080" alt="The home screen: 1:05, Saturday 24 October, 25 degrees and cloudy, the next Subuh prayer at 05:49, a full-screen poster, and a glass shelf of Netflix, YouTube, Prime Video, Disney+, Max, Apple TV, Globoplay and Spotify.">
+        <figcaption>The home screen, as it looks on the television. The clock, the weather, the next prayer, and the apps you open. No ads in between.</figcaption>
+      </figure>
+
+      <section class="facts" aria-label="What you get">
+        <article class="fact" style="--i:1"><b>0</b><span>ads, banners, or promo rows</span></article>
+        <article class="fact" style="--i:2"><b>1</b><span>button back to the original screen</span></article>
+        <article class="fact" style="--i:3"><b>2</b><span>languages: English and Bahasa Melayu</span></article>
+      </section>
+
+      <section class="features" id="features">
+        <p class="section-label">What it does</p>
+        <h2>Glass, solat, and a way back.</h2>
+        <div class="grid">
+          <article class="ve-card ve-card--hero" style="--i:4">
+            <p class="num">01</p>
+            <h3>Glass</h3>
+            <p>A full-screen photo, a clock, and a shelf of the apps you actually open. Classic stays available if you want the older look.</p>
+            <p class="quote">Nothing is uninstalled.</p>
+          </article>
+          <div class="stack">
+            <article class="ve-card" style="--i:5">
+              <p class="num">02</p>
+              <h3>Solat</h3>
+              <p>When a JAKIM zone is set, the next prayer and the time left show next to the weather. The widget can be turned off.</p>
+            </article>
+            <article class="ve-card" style="--i:6">
+              <p class="num">03</p>
+              <h3>Yours to leave</h3>
+              <p>Samsung's own home screen stays. Autorun Last App, under Start Screen Options, makes the TV turn on into this one. Delete the app when you want it gone.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="install" id="install">
+        <p class="section-label">On your Wi-Fi</p>
+        <h2>About ten minutes.</h2>
+        <p class="sub">A Samsung TV from 2017 on, Tizen 3 or newer. Set your city in <em>config.properties</em>. A free TMDB key adds the picks. Picture, sound, and inputs stay as they are.</p>
+        <div class="panel" id="samsung">
+          <ol>
+            <li>On the TV, open Apps and type <em>1 2 3 4 5</em>. Turn Developer mode on, set Host PC IP to this computer, and restart.</li>
+            <li>Build and sign. On 2023 and newer TVs the certificate uses your Samsung account.
+              <div class="code"><code>git clone https://github.com/mkfadzli/samsung-tv && cd samsung-tv && python3 tizen/build.py --sign &lt;profile&gt;</code><button class="copy" type="button">Copy</button></div>
+            </li>
+            <li>Install. Turn on Autorun Last App if you want the TV to wake into it.
+              <div class="code"><code>python3 tizen/install.py 192.168.1.50</code><button class="copy" type="button">Copy</button></div>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <p>Weather by <a href="https://open-meteo.com/">Open-Meteo</a>. Prayer times by JAKIM e-Solat. Picks by TMDB, which does not endorse this app. Not affiliated with Samsung.</p>
+    </footer>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
